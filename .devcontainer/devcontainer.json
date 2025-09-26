@@ -1,0 +1,19 @@
+{
+  "name": "C++ Dev Container",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.cmake-tools",
+        "ms-vscode.cpptools",
+        "matepek.vscode-catch2-test-adapter"
+      ]
+    }
+  },
+  "runArgs": ["--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined"],
+  "postCreateCommand": "cmake -B build -S .",
+  "remoteUser": "root"
+}
